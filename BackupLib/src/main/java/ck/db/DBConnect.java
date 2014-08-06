@@ -41,29 +41,29 @@ public class DBConnect {
     }
 	
     public void close() {
-	try {
-	    if (rs != null) {
-		rs.close();
-	    }
-	    if (stmt != null) {
-		stmt.close();
-	    }
-	    if (conn != null) {
-		conn.close();
-	    }
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	    System.out.println("database cannot be closed  !");
-	}
+		try {
+			if (rs != null) {
+			rs.close();
+			}
+			if (stmt != null) {
+			stmt.close();
+			}
+			if (conn != null) {
+			conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("database cannot be closed  !");
+		}
     }
 	
     public  int update(String sql) {	
-	try {
-	    return stmt.executeUpdate(sql);
-	} catch (SQLException e) {
-	    e.printStackTrace();
-	}
-	return -1;
+		try {
+			return stmt.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
     }
 	
     public  ResultSet query(String sql) {
