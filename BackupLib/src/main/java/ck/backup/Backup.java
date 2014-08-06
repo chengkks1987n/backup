@@ -1,3 +1,4 @@
+ 
 package ck.backup;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -5,6 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import ck.db.*;
 
+/**
+ * apply the main functions of this library, such as backup, restore and search. 
+ * @author ck
+ * @time 2014-08-06
+ */
 public class Backup {
 	public static boolean backup(String key, String remark) {
 		
@@ -14,6 +20,14 @@ public class Backup {
 		return true;
 	}
 	
+	/**
+	 * search records in table src_table.
+	 * @param conditions 
+	 *  the conditions in SQL where part.
+	 * @return	
+	 *  records in the table. if the conditions is null or the size of conditions is zero,
+	 *  return all records; otherwise return the records according the conditions.		
+	*/
 	public static Iterator<SrcTable> searchSrc(Iterator<String> conditions){			
 		DBConnect db = new DBConnect();
 		db.open();
@@ -38,6 +52,16 @@ public class Backup {
 		return null;
 	}
 	
+	/**
+	 * construct the SQL select language
+	 * @param conditions 
+	 *  the conditions in SQL where part.
+	 * @param tablename 
+	 *  the table to be searched
+	 * @return	
+	 *  the SQL query string. f the conditions is null or the size of conditions is zero,
+	 *  ignore the wher part.
+	*/
 	private static String constructSql(Iterator<String> conditions, String tablename) {
 		StringBuilder sql = new StringBuilder("select * from " + tablename);	
 		if (conditions.hasNext()) {
