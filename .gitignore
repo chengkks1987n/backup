@@ -1,2 +1,5 @@
 *~
 BackupLib/target
+.classpath
+.project
+.settings/
