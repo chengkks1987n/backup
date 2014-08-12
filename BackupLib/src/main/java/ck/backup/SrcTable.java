@@ -1,7 +1,5 @@
 package ck.backup;
 
-import java.util.Date;
-
 public class SrcTable {
     private String id;
     private String text;

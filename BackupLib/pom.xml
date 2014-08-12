@@ -1,75 +1,58 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>ck</groupId>
-  <artifactId>BackupLib</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>ck</groupId>
+	<artifactId>BackupLib</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>BackupLib</name>
-  <url>http://maven.apache.org</url>
+	<name>BackupLib</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.oracle</groupId>
-      <artifactId>ojdbc14</artifactId>
-      <version>10.2.0.3.0</version>
-    </dependency>
-  </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.3.0</version>
+		</dependency>
+	</dependencies>
 
+	<build>
+		<testOutputDirectory>${basedir}/target/classes</testOutputDirectory>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
-        <executions>
-          <execution>
-            <id>copy-resources</id>
-            <!-- here the phase you need -->
-            <phase>validate</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${basedir}/target/test-classes</outputDirectory>
-              <resources>          
-                <resource>
-                  <directory>src/main/resources</directory>
-                  <filtering>true</filtering>
-                </resource>
-              </resources>              
-            </configuration>            
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
+		<!-- <plugins> <plugin> <artifactId>maven-resources-plugin</artifactId> 
+			<version>2.6</version> <executions> <execution> <id>copy-resources</id> here 
+			the phase you need <phase>validate</phase> <goals> <goal>copy-resources</goal> 
+			</goals> <configuration> <outputDirectory>${basedir}/target/test-classes</outputDirectory> 
+			<resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+			</resource> </resources> </configuration> </execution> </executions> </plugin> 
+			</plugins> -->
 
-    <resources>  
-      <resource>  
-        <directory>src/main/resources</directory>  
-        <includes>  
-          <include>**/*</include>  
-        </includes>  
-      </resource>  
-      <resource>  
-        <directory>src/main/java</directory>  
-        <includes>  
-          <include>**/*.xml</include>  
-          <include>**/*.properties</include>  
-        </includes>  
-      </resource>  
-    </resources>  
-  </build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 </project>
